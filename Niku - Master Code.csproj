@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Niku___Master_Code</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="KiteConnect">
+      <HintPath>..\..\..\NikuAPI\Market2\bin\Debug\KiteConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\NikuAPI\Market2\bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="nimbleStreamClientPro">
+      <HintPath>..\..\..\NikuAPI\Market2\bin\Debug\nimbleStreamClientPro.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\..\..\NikuAPI\Market2\bin\Debug\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="TrueData-DotNet">
+      <HintPath>..\..\..\NikuAPI\Market2\bin\Debug\TrueData-DotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>..\..\..\NikuAPI\Market2\bin\Debug\websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>..\..\..\NikuAPI\Market2\bin\Debug\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,50 @@
+﻿<Window x:Class="NiKu.winMWSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wpfx="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
+        Title="Settings" Height="229" Width="284" ResizeMode="NoResize" WindowStartupLocation="CenterOwner"  Icon="images\settings.png" Loaded="mwSetting_Loaded" PreviewKeyDown="Window_PreviewKeyDown_1">
+  
+    <DockPanel  >
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
+            <Button Name="btnDefault" Content="Default" ToolTip="Load Default Setting" Width="50" Height="20" Click="btnDefault_Click" ></Button>
+            <Button Name="btnSave" Content="Apply" Width="50" Height="20" Margin="10,10,0,10" Click="btnSave_Click" ></Button>
+            <Button Name="btnCancel" Content="Cancel" Width="50" Height="20" Margin="10,10" Click="btnCancel_Click"></Button>
+
+        </StackPanel>
+    
+    <Grid>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                <Label Content="Background" Margin="2,2"/>
+                    <Label Content="Foreground" Margin="2,2"/>
+                    <Label Content="% Change &gt; 0" Margin="2,2"/>
+                    <Label Content="% Change &lt; 0 " Margin="2,2"/>                
+
+            </StackPanel>
+
+            <StackPanel>
+                    <wpfx:ColorPicker x:Name="cpBGColor" Margin="2,2" SelectedColor="Black" Width="40" Height="25"   />
+                    <wpfx:ColorPicker x:Name="cpForeColor" Margin="2,2"  SelectedColor="White" Width="40" Height="25"/>
+
+                    <wpfx:ColorPicker x:Name="cpChangePstv" Margin="2,2" SelectedColor="White" Width="40" Height="25" />
+                    <wpfx:ColorPicker x:Name="cpChangeNgtv" Margin="2,2" SelectedColor="White" Width="40" Height="25"   />
+                  
+            </StackPanel>
+                
+                <StackPanel>
+                    <Label Content="Market Up" Margin="2,2"/>
+                    <Label Content="Market Down" Margin="2,2"/>
+                    <Label Content="Font" Margin="2,2"/>
+
+                </StackPanel>
+                <StackPanel>
+                    <wpfx:ColorPicker x:Name="cpMarketUp" Margin="2,2" SelectedColor="Black" Width="40" Height="25" />
+                    <wpfx:ColorPicker x:Name="cpMarketDown" Margin="2,2" SelectedColor="White" Width="40" Height="25" />
+
+                    <ComboBox x:Name="cmbFontSize" Margin="2,2"  IsEditable="True" Width="40" SelectionChanged="cmbFontSize_SelectionChanged" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+
+</Window>

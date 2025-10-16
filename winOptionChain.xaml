@@ -1,0 +1,333 @@
+﻿<Window
+    x:Class="NiKu.winOptionChain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:NiKu.Converters"
+    Title="Option Chain"
+    Width="700"
+    Height="550"
+    Loaded="Window_Loaded_1" Closing="Window_Closing"
+    WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <converter:ConvertZeroToDash x:Key="zerotodash" />
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            DockPanel.Dock="Top"
+            Orientation="Horizontal">
+            <ComboBox
+                Name="cmbGroup"
+                Margin="10,0,0,0"
+                SelectionChanged="cmbExchanges_SelectionChanged" />
+            <ComboBox
+                Name="cmbCompName"
+                Margin="10,0,0,0"
+                SelectionChanged="cmbCompName_SelectionChanged">
+                <!--<ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Company}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>-->
+            </ComboBox>
+            <ComboBox Name="cmbExpiry" Margin="10,0,0,0" />
+            <Button
+                Name="btnshow"
+                Margin="10,0,0,0"
+                Background="White"
+                Click="btnshow_Click_1">
+                <Image
+                    Width="20"
+                    Height="20"
+                    Source="images\report.png" />
+            </Button>
+        </StackPanel>
+        <ListView
+            x:Name="lvCalls"
+            Grid.Column="0"
+            BorderBrush="Transparent"
+            ItemsSource="{Binding ocCalls}">
+            <ListView.View>
+                <GridView x:Name="gridView" AllowsColumnReorder="True">
+                    <GridView.Columns>
+                        <!--Greek Values-->
+                        <GridViewColumn Width="40" Header="Delta">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=delta, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="48" Header="Gamma">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=gamma, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="48" Header="Theta">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=theta, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="48" Header="Vega">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=vega, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="48" Header="Rho">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=rho, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <!--Ends-->
+
+
+                        <GridViewColumn Width="40" Header="OI">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=OI, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="70" Header="Chng in OI">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=ChngInOI, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="65" Header="Volume">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=Volume, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="65" Header="IV">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=IV, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="64" Header="LTP">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Stretch"
+                                        Background="{Binding background}"
+                                        Foreground="Black"
+                                        Text="{Binding Path=LTP, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="60" Header="Net Chng">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=NetChng, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="65" Header="Bid Qty">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=BidQty, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="65" Header="Bid Price">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=BidPrice, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="65" Header="Ask Price">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=AskPrice, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="65" Header="Ask Qty">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=AskQty, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="80" Header="StrikePrice">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Left"
+                                        Foreground="Blue"
+                                        Text="{Binding Path=P_StrikePrice}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                        <!--  Puts  -->
+                        <GridViewColumn Width="65" Header="Bid Qty">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=P_BidQty, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="65" Header="Bid Price">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=P_BidPrice, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="65" Header="Ask Price">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=P_AskPrice, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="65" Header="Ask Qty">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Left"
+                                        FontWeight="Bold"
+                                        Text="{Binding Path=P_AskQty, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                        <GridViewColumn Width="65" Header="Net Chng">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Left"
+                                        Foreground="{Binding BSColor}"
+                                        Text="{Binding Path=P_NetChng, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                        <GridViewColumn Width="64" Header="LTP">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Stretch"
+                                        Background="{Binding P_background}"
+                                        Foreground="Black"
+                                        Text="{Binding Path=P_LTP, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="65" Header="IV">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=P_IV, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                        <GridViewColumn Width="65" Header="Volume">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=P_Volume, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                        <GridViewColumn Width="65" Header="Chng in OI">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=P_ChngInOI, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                        <GridViewColumn Width="40" Header="OI">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=P_OI, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <!--Greek Values-->
+                        <GridViewColumn Width="48" Header="Rho">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=P_rho, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="48" Header="Vega">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=P_vega, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="48" Header="Theta">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=P_theta, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="48" Header="Gamma">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=P_gamma, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="40" Header="Delta">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=P_delta, Converter={StaticResource zerotodash}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <!--Ends-->
+                    </GridView.Columns>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </DockPanel>
+</Window>

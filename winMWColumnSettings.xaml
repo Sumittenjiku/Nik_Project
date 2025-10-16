@@ -1,0 +1,33 @@
+﻿<Window x:Class="NiKu.winMWColumnSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Columns" Height="220" Width="230" Loaded="winMWColumnSettings_Loaded" Icon="images\settings.png"  WindowStartupLocation="CenterOwner">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10"> 
+            <Button x:Name="btnSave" Content="Save" Padding="8,0" Click="btnSave_Click"></Button>
+            <Button x:Name="btnClose" Content="Cancel" Padding="5,0" Margin="10,0,0,0" Click="btnClose_Click_1"></Button>
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal" Margin="10,10">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type CheckBox}">
+                    <Setter Property="Margin" Value="0,5">
+                        
+                    </Setter>                
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel Orientation="Vertical">
+                <CheckBox x:Name="chk0" Content="Open"></CheckBox>
+                <CheckBox x:Name="chk1" Content="High"></CheckBox>
+                <CheckBox x:Name="chk2" Content="Low"></CheckBox>
+                <CheckBox x:Name="chk3" Content="Close"></CheckBox>
+                <CheckBox x:Name="chk4" Content="% Change"></CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="20,0">
+                <CheckBox x:Name="chk5" Content="Bid"></CheckBox>
+                <CheckBox x:Name="chk6" Content="Ask"></CheckBox>
+                <CheckBox x:Name="chk7" Content="LTP"></CheckBox>
+                <CheckBox x:Name="chk8" Content="Change"></CheckBox>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>

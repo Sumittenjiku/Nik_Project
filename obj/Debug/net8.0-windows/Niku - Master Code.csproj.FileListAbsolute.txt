@@ -1,0 +1,13 @@
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\Niku - Master Code.csproj.AssemblyReference.cache
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\winMWColumnSettings.baml
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\winMWSetting.baml
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\winSetDPcolor.baml
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\MainWindow.g.cs
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\winMWColumnSettings.g.cs
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\winMWSetting.g.cs
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\winOptionChain.g.cs
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\winSetDPcolor.g.cs
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\App.g.cs
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\Niku - Master Code_MarkupCompile.cache
+A:\Projects\Niku\TRIAL\Niku - Master Code\Niku - Master Code\Niku - Master Code\obj\Debug\net8.0-windows\Niku - Master Code_MarkupCompile.lref
