@@ -17,7 +17,7 @@ Now that we understand how to request data for an instrument, let's explore the 
 
 2. The Data: Understanding the  Update
 
-The LiveTick class is the main data container that holds all the live market information for a subscribed instrument. You can think of it as a detailed "snapshot" of the market at a specific moment. Critically, each LiveTick object includes a ScriptCode property, allowing your application to map the incoming data directly back to your original LiveSubscription request. The server sends these LiveTick objects repeatedly to keep your application updated.
+The LiveTick class is the main data container that holds all the live market information for a subscribed instrument.You can think of it as a detailed "snapshot" of the market at a specific moment. Critically, each LiveTick object includes a ScriptCode property, allowing your application to map the incoming data directly back to your original LiveSubscription request. The server sends these LiveTick objects repeatedly to keep your application updated.
 
 While the full LiveTick class has many properties, we will focus on four of the most fundamental ones for understanding market activity: Ask, Bid, LastPrice, and Volume.
 
