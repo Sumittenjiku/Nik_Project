@@ -1,4 +1,4 @@
-Understanding Financial Market Data in Code: A Walkthrough of  and Introduction: The Basic Idea
+[![GitMCP](https://img.shields.io/endpoint?url=https://gitmcp.io/badge/Sumittenjiku/Nik_Project)](https://gitmcp.io/Sumittenjiku/Nik_Project) Understanding Financial Market Data in Code: A Walkthrough of  and Introduction: The Basic Idea
 
 Getting live financial market data is a simple, two-step process. First, your software has to ask a data server for the specific stock, option, or currency you're interested in. Second, once the server knows what you want, it begins sending you a continuous stream of updates for that item. We'll explore two core data structures that model this process: the LiveSubscription class is how you "ask" for data, and the LiveTick class is the "update" you receive. This guide will break down what each class is and what its most important properties mean for a beginner.
 
